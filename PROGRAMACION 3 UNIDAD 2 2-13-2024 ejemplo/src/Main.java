@@ -1,3 +1,5 @@
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 
 /*
@@ -11,17 +13,16 @@ public class Main {
 		// TODO Auto-generated method stub
 		System.out.println("hola");
 		
-		JFrame ventana = new JFrame("Example");
-		ventana.setVisible(true);
-		ventana.setSize(500, 500);
-		ventana.setLocation(900, 500);
+		//JFrame ventana = new JFrame("Example");
 		
-		//ventana.setLocationRelativeTo(null);
+		Ventana ventana = new Ventana();
 		
-		ventana.setResizable(false);//no deja cambiar el tamaño de la ventana
 		
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		
+		//ventana.setTitle("Mi Ventana");//nomnre de la ventana
 
 	}
+
 
 }
