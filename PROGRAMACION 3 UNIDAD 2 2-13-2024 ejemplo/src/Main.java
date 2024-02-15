@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 
 /*
  * Heriberto Ismael Ramirez Aguilar
- * 13 de Febrero de 2024
+ * 15 de Febrero de 2024
  * Actividad 4 
  */
 public class Main {
