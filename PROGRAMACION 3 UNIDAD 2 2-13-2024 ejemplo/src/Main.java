@@ -1,28 +1,17 @@
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
-
 /*
  * Heriberto Ismael Ramirez Aguilar
- * 15 de Febrero de 2024
- * Actividad 4 
+ * 27 de febrero de 2024
+ * Calculadora insana (solo diseño)
  */
 public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("hola");
 		
-		//JFrame ventana = new JFrame("Example");
+		System.out.println("Calculadora uwu");
 		
 		Ventana ventana = new Ventana();
 		
-		
-		
-		
-		//ventana.setTitle("Mi Ventana");//nomnre de la ventana
-
 	}
-
 
 }
