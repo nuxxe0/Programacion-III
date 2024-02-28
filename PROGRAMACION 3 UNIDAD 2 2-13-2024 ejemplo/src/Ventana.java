@@ -1,7 +1,12 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -41,21 +46,84 @@ public class Ventana extends JFrame {
     
     public void iniciarComponentes()
     {
-    	this.login();
+    	//this.login();
     	
     	//this.registro();
     
     	//this.admin();
     	
+    	this.calculadora();    	
     	this.repaint();
     	this.validate();
         
+    	
         
         
     }
+    public void calculadora(){
+    	this.setSize(480, 650);
+    	
+    	JPanel panel = new JPanel();
+    	panel.setSize(this.getWidth()-15,this.getHeight()-40);
+    	panel.setBackground(Color.decode("#DC8DEC"));
+    	panel.setLayout(new BorderLayout());
+    	
+    	
+    	JLabel text = new JLabel("100.00",0);
+    	text.setOpaque(true);
+    	text.setBackground(Color.white);
+    	text.setFont(new Font("Arial", Font.BOLD, 40));
+    	panel.add(text, BorderLayout.NORTH);
+    	
+    	JPanel centro = new JPanel();
+    	centro.setBackground(Color.decode("#B978C6"));
+    	centro.setLayout(new GridLayout(4, 3, 10, 10));
+    	panel.add(centro);
+    	
+    	String btns[] = {"7","8","9",
+		    			"4","5","6",
+		    			"1","2","3",
+		    			".","0","/",};
+    	for (int i=0; i<12; i++)
+    	{
+    		JButton boton = new JButton(btns[i]);
+        	boton.setFont(new Font("Arial", Font.BOLD, 30));
+    		centro.add(boton);
+    	}
+    	
+    	JPanel east = new JPanel();
+    	east.setBackground(Color.decode("#A943BD"));
+    	east.setLayout(new GridLayout(3, 1));
+    	panel.add(east,BorderLayout.EAST);
+    	
+    	String btns2[] = {"+","-","="};
+    	for (int i=0; i<3; i++)
+    	{
+    		JButton boton = new JButton(btns2[i]);
+        	boton.setFont(new Font("Arial", Font.BOLD, 30));
+    		east.add(boton);
+    	}
+    	
+    	
+    	JPanel west = new JPanel();
+    	west.setBackground(Color.DARK_GRAY);
+    	west.setLayout(new BoxLayout(west, BoxLayout.Y_AXIS));
+    	panel.add(west,BorderLayout.WEST);
+    	
+    	String btns3[] = {"+","-","="};
+    	for (int i=0; i<3; i++)
+    	{
+    		JButton boton = new JButton(btns2[i]);
+    		west.add(boton);
+    	}
+    	
+    	
+    	this.add(panel);
+    	
+    }
     public void login(){
     	JPanel login = new JPanel();
-        login.setSize(this.getWidth()/2,this.getHeight());
+        login.setSize(this.getWidth(),this.getHeight());
         login.setBackground(Color.decode("#5F70DF"));
         login.setLayout(null);//quitamos el molde
         
@@ -417,6 +485,8 @@ public class Ventana extends JFrame {
     	this.add(admin_panel);
     	
     }
+    
+    
     
     
 }
