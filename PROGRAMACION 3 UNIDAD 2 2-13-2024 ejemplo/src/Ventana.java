@@ -52,7 +52,10 @@ public class Ventana extends JFrame {
     
     	//this.admin();
     	
-    	this.calculadora();    	
+    	//this.calculadora(); 
+    	
+    	this.calcuInteres();
+    	
     	this.repaint();
     	this.validate();
         
@@ -60,11 +63,152 @@ public class Ventana extends JFrame {
         
         
     }
+    
+    public void calcuInteres() {
+    	this.setSize(600, 600);
+    	
+    	JPanel calcuInteres = new JPanel();
+    	calcuInteres.setSize(this.getWidth(),this.getHeight());
+    	calcuInteres.setBackground(Color.white);
+    	calcuInteres.setLayout(null);
+    	calcuInteres.setOpaque(true);
+    	
+    	
+    	JLabel texto = new JLabel("Interés");
+    	texto.setSize(100, 40);
+        texto.setFont(new Font("Bell MT", Font.BOLD, 30));
+    	texto.setLocation(10, 10);
+    	texto.setForeground(Color.red);
+    	calcuInteres.add(texto);
+    	
+    	
+    	//primer panel (verde)
+    	JLabel panelVerde = new JLabel();
+    	panelVerde.setSize(550, 300);
+    	panelVerde.setLocation(10, 50);
+    	panelVerde.setBackground(Color.decode("#A0F883"));
+    	panelVerde.setLayout(null);
+    	panelVerde.setOpaque(true);
+    	calcuInteres.add(panelVerde, BorderLayout.NORTH);
+    	
+    	JLabel login_tag = new JLabel("Calculadora Interes");
+        login_tag.setSize(200, 20);
+        login_tag.setFont(new Font("Arial", Font.BOLD, 15));
+        login_tag.setForeground(Color.black);//color a la letra
+        login_tag.setLocation(10,10);
+        panelVerde.add(login_tag);
+        
+        
+        //capital
+        JLabel capitalTexto = new JLabel("Capital");
+        capitalTexto.setSize(200, 50);
+        capitalTexto.setFont(new Font("Arial", Font.BOLD, 15));
+        capitalTexto.setForeground(Color.black);//color a la letra
+        capitalTexto.setLocation(80,50);
+        panelVerde.add(capitalTexto);
+    	
+        JTextField capitalCaja = new JTextField();
+        capitalCaja.setBounds(200, 60, 250, 30);
+        capitalCaja.setFont(new Font("Bell MT", Font.BOLD, 20));
+        panelVerde.add(capitalCaja);
+        
+      //tiempo
+        JLabel tiempoTexto = new JLabel("Tiempo");
+        tiempoTexto.setSize(200, 50);
+        tiempoTexto.setFont(new Font("Arial", Font.BOLD, 15));
+        tiempoTexto.setForeground(Color.black);//color a la letra
+        tiempoTexto.setLocation(80,100);
+        panelVerde.add(tiempoTexto);
+    	
+        JTextField tiempoCaja = new JTextField();
+        tiempoCaja.setBounds(200, 110, 250, 30);
+        tiempoCaja.setFont(new Font("Bell MT", Font.BOLD, 20));
+        panelVerde.add(tiempoCaja);
+        
+      //tasa interes
+        JLabel tasaTexto = new JLabel("Tasa Interes");
+        tasaTexto.setSize(200, 50);
+        tasaTexto.setFont(new Font("Arial", Font.BOLD, 15));
+        tasaTexto.setForeground(Color.black);//color a la letra
+        tasaTexto.setLocation(80,150);
+        panelVerde.add(tasaTexto);
+    	
+        JTextField tasaCaja = new JTextField();
+        tasaCaja.setBounds(200, 160, 250, 30);
+        tasaCaja.setFont(new Font("Bell MT", Font.BOLD, 20));
+        panelVerde.add(tasaCaja);
+    	
+      
+        
+      //boton calcular
+        JButton calcularBoton = new JButton("  Calcular");
+        calcularBoton.setBounds(100, 230, 140, 30);
+        calcularBoton.setFont(new Font("Arial", Font.BOLD, 15));
+        calcularBoton.setForeground(Color.white);
+        calcularBoton.setBackground(Color.black);
+        panelVerde.add(calcularBoton);
+        
+      //imagen calcular boton
+        JLabel imgCalcularBoton = new JLabel();
+        imgCalcularBoton.setIcon(new ImageIcon(getClass().getResource("disco-flexible.png")));
+        calcularBoton.add(imgCalcularBoton);
+
+      //boton cancelar
+        JButton cancelarBoton = new JButton("  Cancelar");
+        cancelarBoton.setBounds(340, 230, 140, 30);
+        cancelarBoton.setFont(new Font("Arial", Font.BOLD, 15));
+        cancelarBoton.setForeground(Color.white);
+        cancelarBoton.setBackground(Color.black);
+        panelVerde.add(cancelarBoton);
+        
+      //imagen calcular boton
+        JLabel imgCancelarBoton = new JLabel();
+        imgCancelarBoton.setIcon(new ImageIcon(getClass().getResource("cancelar.png")));
+        cancelarBoton.add(imgCancelarBoton);
+        
+        //fondo rojo
+        JLabel panelRojo = new JLabel("");
+        panelRojo.setSize(550,130);
+        panelRojo.setBackground(Color.decode("#F88A83"));
+        panelRojo.setLocation(10, 390);
+        panelRojo.setOpaque(true);
+        calcuInteres.add(panelRojo, BorderLayout.SOUTH);
+        
+      //tiempo
+        JLabel interesTexto = new JLabel("Interes");
+        interesTexto.setSize(800, 50);
+        interesTexto.setFont(new Font("Arial", Font.BOLD, 15));
+        interesTexto.setForeground(Color.black);//color a la letra
+        interesTexto.setLocation(80,10);
+        panelRojo.add(interesTexto);
+    	
+        JTextField interesCaja = new JTextField();
+        interesCaja.setBounds(200, 20, 250, 30);
+        interesCaja.setFont(new Font("Bell MT", Font.BOLD, 20));
+        panelRojo.add(interesCaja);
+        
+      //tasa interes
+        JLabel montoTexto = new JLabel("Monto");
+        montoTexto.setSize(200, 50);
+        montoTexto.setFont(new Font("Arial", Font.BOLD, 15));
+        montoTexto.setForeground(Color.black);//color a la letra
+        montoTexto.setLocation(80,70);
+        panelRojo.add(montoTexto);
+    	
+        JTextField montoCaja = new JTextField();
+        montoCaja.setBounds(200, 80, 250, 30);
+        montoCaja.setFont(new Font("Bell MT", Font.BOLD, 20));
+        panelRojo.add(montoCaja);
+        
+
+    	this.add(calcuInteres);
+    }
+    
     public void calculadora(){
     	this.setSize(480, 650);
     	
     	JPanel panel = new JPanel();
-    	panel.setSize(this.getWidth()-15,this.getHeight()-40);
+    	panel.setSize(this.getWidth(),this.getHeight());
     	panel.setBackground(Color.decode("#DC8DEC"));
     	panel.setLayout(new BorderLayout());
     	
@@ -121,6 +265,7 @@ public class Ventana extends JFrame {
     	this.add(panel);
     	
     }
+    
     public void login(){
     	JPanel login = new JPanel();
         login.setSize(this.getWidth(),this.getHeight());
