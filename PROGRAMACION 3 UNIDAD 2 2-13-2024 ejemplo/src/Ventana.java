@@ -48,13 +48,13 @@ public class Ventana extends JFrame {
     {
     	//this.login();
     	
-    	//this.registro();
+    	this.registro();
     
     	//this.admin();
     	
     	//this.calculadora(); 
     	
-    	this.calcuInteres();
+    	//this.calcuInteres();
     	
     	this.repaint();
     	this.validate();
