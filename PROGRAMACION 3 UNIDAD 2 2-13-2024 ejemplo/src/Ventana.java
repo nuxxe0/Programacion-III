@@ -1,11 +1,17 @@
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -44,11 +50,64 @@ public class Ventana extends JFrame {
       this.setVisible(true);//permite que la ventana sea visible
       }
     
+    @Override
+    public void paint(Graphics g) { //la funcion paint se invoca sola uwu
+    	super.paint(g);
+    	
+    	Graphics g2d = (Graphics)g;
+    	
+    	
+    	//asigma el color del pincel
+    	g2d.setColor(Color.blue);
+    	
+    	g2d.drawLine(30, 70, 770, 70);//dibuja linea
+    	
+    	
+    	g2d.fillRect(50, 50, 200, 100);//dibuja rectangulo relleno
+    	
+    	g2d.clearRect(100, 100, 100, 100);//borra un area 
+    	
+    	g2d.drawArc(300, 300, 100, 100, 40, 180);//dibuja un arco
+    	g2d.fillArc(400, 400, 100, 100, 45, 180);
+    	
+    	g2d.setColor(Color.black);
+    	g2d.drawLine(0, 0, 500, 500);
+    	
+    	
+    	g2d.fillOval(600, 400, 50, 200);//dibuja un ovalo
+    	g2d.fillOval(500, 400, 50, 50);
+    	
+    	int xPoints[] = {100,250,300};
+    	int yPoints[] = {100,200,300};
+    	
+    	g2d.setColor(Color.red);
+    	
+    	//g2d.drawPolyline(xPoints, yPoints, 3);
+    	g2d.fillPolygon(xPoints, yPoints, 3);
+    	
+    	g2d.setFont(new Font("Arial", Font.BOLD, 30));
+    	g2d.drawString("Hola amigos de yutub", 300, 200);
+    	
+    	//g2d.Stroke ( no me funciiona :,v ))
+    	
+    	g2d.drawRoundRect(700, 150, 200, 150, 40, 5);
+    	
+    	try {
+
+        	BufferedImage img = ImageIO.read(new File("src/vaca2.png"));
+        	g2d.drawImage(img, 0, 0, null);
+    	}catch (IOException e)
+    	{
+    		e.printStackTrace();
+    	}
+    }
+    
+    
     public void iniciarComponentes()
     {
     	//this.login();
     	
-    	this.registro();
+    	//this.registro();
     
     	//this.admin();
     	
