@@ -37,7 +37,7 @@ public class Ventana extends JFrame {
       {
       
       this.setSize(1000, 700);//darle un tamaño a la ventana
-      this.setLocation(500, 500);//ubicacion en la pantalla
+      //this.setLocation(500, 500);//ubicacion en la pantalla
       this.setLocationRelativeTo(null);//centrar la ventana en la pantalla
       this.setResizable(true);//no deja cambiar el tamaño de la ventana
       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//cerrar el programa por defecto
@@ -50,48 +50,168 @@ public class Ventana extends JFrame {
       this.setVisible(true);//permite que la ventana sea visible
       }
     
+    
+    
+    //casita con la libreria Graphics
     @Override
     public void paint(Graphics g) { //la funcion paint se invoca sola uwu
     	super.paint(g);
     	
     	Graphics g2d = (Graphics)g;
+    	//g2d.setColor(Color.blue);//asigma el color del pincel
+    	//fill para rellenar dibuju y draw para solo trazar
+    	//g2d.drawLine(30, 70, 770, 70);//dibuja una linea
+    	//g2d.fillRect(50, 50, 200, 100);//dibuja rectangulo relleno
+    	//g2d.clearRect(100, 100, 100, 100);//borra un area 
+    	
+    	//g2d.drawArc(300, 300, 100, 100, 40, 180);//dibuja un arco
+    	//g2d.fillArc(400, 400, 100, 100, 45, 180);
+    	
+    	//g2d.setColor(Color.black);
+    	//g2d.drawLine(0, 0, 500, 500);
     	
     	
-    	//asigma el color del pincel
-    	g2d.setColor(Color.blue);
+    	//g2d.fillOval(600, 400, 50, 200);//dibuja un ovalo
+    	//g2d.fillOval(500, 400, 50, 50);
     	
-    	g2d.drawLine(30, 70, 770, 70);//dibuja linea
-    	
-    	
-    	g2d.fillRect(50, 50, 200, 100);//dibuja rectangulo relleno
-    	
-    	g2d.clearRect(100, 100, 100, 100);//borra un area 
-    	
-    	g2d.drawArc(300, 300, 100, 100, 40, 180);//dibuja un arco
-    	g2d.fillArc(400, 400, 100, 100, 45, 180);
-    	
-    	g2d.setColor(Color.black);
-    	g2d.drawLine(0, 0, 500, 500);
+    	//int xPoints[] = {100,250,300};
+    	//int yPoints[] = {100,100,300};
     	
     	
-    	g2d.fillOval(600, 400, 50, 200);//dibuja un ovalo
-    	g2d.fillOval(500, 400, 50, 50);
     	
-    	int xPoints[] = {100,250,300};
-    	int yPoints[] = {100,200,300};
+    	//fondo
+    	//cielo de la casa
+    	g2d.setColor(Color.decode("#53FAFF"));
+    	g2d.fillRect(1, 1, 1000, 700);
     	
+    	//pasto de la casa
+    	g2d.setColor(Color.decode("#67EA4A"));
+    	g2d.fillRect(1, 350, 1000, 400);
+    	
+    	
+    	
+    	
+    	//Sol
+    	g2d.setColor(Color.decode("#DFEC2E"));
+    	g2d.fillRect(50, 50, 150, 150);
+    	g2d.setColor(Color.decode("#F6FF80"));
+    	g2d.fillRect(60, 60, 130, 130);
+    	g2d.setColor(Color.decode("#FBFFC9"));
+    	g2d.fillRect(70, 70, 110, 110);
+    	
+    	//sus
     	g2d.setColor(Color.red);
+    	g2d.fillRect(50, 600, 10, 10);
+    	g2d.fillRect(50, 610, 4, 5);
+    	g2d.fillRect(56, 610, 4, 5);
+    	g2d.setColor(Color.decode("#71FFF8"));
+    	g2d.fillRect(53, 603, 4, 4);
+    	
+    	//cerca
+    	g2d.setColor(Color.decode("#9E843C"));
+    	int xCerca =15 ;
+    	for(int i=0;i<=21;i++) 
+    	{
+        	g2d.fillRect(xCerca, 380, 20, 60);
+        	xCerca += 50;
+    	}
+    	//cercaLinea
+    	g2d.fillRect(1, 400, 1000, 20);
+    	
+    	//casa///////////////////
+    	g2d.setColor(Color.decode("#C8D84A"));
+    	g2d.fillRect(250, 300, 500, 200);
+    	
+    	//parte de abajo de la caja raya oscura de la puerta
+    	g2d.setColor(Color.decode("#5E6428"));
+    	g2d.fillRect(240, 500, 500, 10);
+    	
+    	//parte de abajo de la caja raya oscura de la ventana
+    	g2d.setColor(Color.decode("#4E5321"));
+    	g2d.fillRect(450, 500, 310, 10);
+    	
+    	//casa puerta
+    	g2d.setColor(Color.decode("#5E6428"));
+    	g2d.fillRect(300, 350, 100, 150);
+    	
+    	//puerta
+    	g2d.setColor(Color.decode("#7C833B"));
+    	g2d.fillRect(310, 360, 80, 150);
+    	
+    	//manija de la puerta
+    	g2d.setColor(Color.decode("#5E6428"));
+    	g2d.fillArc(370, 425, 10, 10, 40, 360);//dibuja un arco
+    	
+    	
+    	//casa ventana
+    	g2d.setColor(Color.decode("#BBCA45"));
+    	g2d.fillRect(450, 300, 300, 200);
+    	
+    	g2d.setColor(Color.decode("#6F6751"));
+    	g2d.fillRect(450, 310, 300, 10);
+    	
+    	
+    	//ventana
+    	g2d.setColor(Color.decode("#5E6428"));
+    	g2d.fillRect(550, 350, 100, 100);
+    	
+    	//vidrio de la ventana
+    	g2d.setColor(Color.decode("#ABFFF6"));
+    	g2d.fillRect(560, 360, 35, 80);
+    	g2d.fillRect(605, 360, 35, 80);
+    	
+    	//techo casa ventana
+    	int xTechoVentana[] = {450,780,730,360};
+    	int yTechoVentana[] = {310,310,220,220};
+    	g2d.setColor(Color.decode("#B12626"));
+    	g2d.fillPolygon(xTechoVentana, yTechoVentana, 4);
+    	
+    	//techo casa puerta
+    	int xTechoPuerta[] = {240,350,460,450,350,250};
+    	int yTechoPuerta[] = {310,200,310,320,220,320};
+    	g2d.setColor(Color.decode("#DD2E2E"));
+    	g2d.fillPolygon(xTechoPuerta, yTechoPuerta, 6);
+    	
+    	int xTechoPuertaTriangulo[] = {450,350,250};
+    	int yTechoPuertaTriangulo[] = {320,220,320};
+    	g2d.setColor(Color.decode("#C8D84A"));
+    	g2d.fillPolygon(xTechoPuertaTriangulo, yTechoPuertaTriangulo, 3);
+    	
+    	//chimenea
+    	g2d.setColor(Color.decode("#BBCA45"));
+    	g2d.fillRect(480, 180, 50, 80);
+    	
+    	g2d.setColor(Color.decode("#5E6428"));
+    	g2d.fillRect(475, 180, 60, 10);
+    	
+    	g2d.fillRect(500, 240, 20, 10);
+    	g2d.setColor(Color.decode("#7C833B"));
+    	g2d.fillRect(485, 200, 20, 10);
+    	g2d.fillRect(490, 210, 20, 10);
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
+    	
     	
     	//g2d.drawPolyline(xPoints, yPoints, 3);
-    	g2d.fillPolygon(xPoints, yPoints, 3);
+    	//g2d.fillPolygon(xPoints, yPoints, 3);
     	
-    	g2d.setFont(new Font("Arial", Font.BOLD, 30));
-    	g2d.drawString("Hola amigos de yutub", 300, 200);
+    	//g2d.setFont(new Font("Arial", Font.BOLD, 30));
+    	//g2d.drawString("Hola amigos de yutub", 300, 200);
     	
     	//g2d.Stroke ( no me funciiona :,v ))
     	
-    	g2d.drawRoundRect(700, 150, 200, 150, 40, 5);
+    	//g2d.drawRoundRect(700, 150, 200, 150, 0, 0);//darle bordes al rectangulo
     	
+    	/*
     	try {
 
         	BufferedImage img = ImageIO.read(new File("src/vaca2.png"));
@@ -100,6 +220,7 @@ public class Ventana extends JFrame {
     	{
     		e.printStackTrace();
     	}
+    	*/
     }
     
     
