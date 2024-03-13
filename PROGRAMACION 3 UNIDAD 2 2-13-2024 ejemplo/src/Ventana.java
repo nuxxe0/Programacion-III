@@ -27,6 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
@@ -37,6 +38,8 @@ import javax.swing.JTextField;
 
 public class Ventana extends JFrame {
     
+	JPanel btn_panel;
+	
     public Ventana()
       {
       
@@ -402,37 +405,41 @@ public class Ventana extends JFrame {
 	    btn_panel.add(superButton);
 	    
 	    superButton.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				//cordenadas y tamaño para el boton de manera random
 				int x = (int)Math.floor(Math.random()*450+1);
 				int y = (int)Math.floor(Math.random()*650+1);
-				
 				int w = (int)Math.floor(Math.random()*120+1);
 				int h = (int)Math.floor(Math.random()*120+1);
 
+				//color aleatorio para el boton
 				Random rand = new Random();
 				float r = rand.nextFloat();
 				float g = rand.nextFloat();
 				float b = rand.nextFloat();
 				Color randomColor = new Color(r, g, b);
 				
-
+				//se genera un boton random
 				JButton otroBotton = new JButton(r+","+g+","+b);
 				otroBotton.setBounds(x,y,w,h);
 				otroBotton.setOpaque(true);
 				otroBotton.setBorder(BorderFactory.createLineBorder(randomColor,5));
 				btn_panel.add(otroBotton);
 				
+				//al presionar el boton aparece el texto que tiene dentro
+				otroBotton.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JOptionPane.showMessageDialog(null, otroBotton.getText());	
+					}
+				});
+				//repintar uwu
 				getContentPane().repaint();
-				
 			}
 		});
-	    
-	    
-        
-    	
     	this.add(btn_panel);
     }
     
