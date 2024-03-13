@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -369,9 +370,9 @@ public class Ventana extends JFrame {
     
     public void iniciarComponentes()
     {
-    	this.login();
+    	//this.login();
     	
-    	this.registro();
+    	//this.registro();
     
     	//this.admin();
     	
@@ -379,9 +380,60 @@ public class Ventana extends JFrame {
     	
     	//this.calcuInteres();
     	
+    	this.botones();
+    	
     	this.repaint();
     	this.validate();
         
+    }
+    public void botones () {
+
+    	this.setSize(500,700);
+    	JPanel btn_panel = new JPanel();
+    	btn_panel.setSize(this.getWidth(),this.getHeight());
+    	btn_panel.setLocation(0,0);
+    	btn_panel.setBackground(Color.decode("#57FFD4"));
+    	btn_panel.setLayout(null);//quitar molde
+    	
+
+	    JButton superButton = new JButton("Crear cuenta");
+	    superButton.setBounds(150, 550, 200, 40);
+	    superButton.setFont(new Font("Bell MT", Font.BOLD, 20));
+	    btn_panel.add(superButton);
+	    
+	    superButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int x = (int)Math.floor(Math.random()*450+1);
+				int y = (int)Math.floor(Math.random()*650+1);
+				
+				int w = (int)Math.floor(Math.random()*120+1);
+				int h = (int)Math.floor(Math.random()*120+1);
+
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				Color randomColor = new Color(r, g, b);
+				
+
+				JButton otroBotton = new JButton(r+","+g+","+b);
+				otroBotton.setBounds(x,y,w,h);
+				otroBotton.setOpaque(true);
+				otroBotton.setBorder(BorderFactory.createLineBorder(randomColor,5));
+				btn_panel.add(otroBotton);
+				
+				getContentPane().repaint();
+				
+			}
+		});
+	    
+	    
+        
+    	
+    	this.add(btn_panel);
     }
     
     public void calcuInteres() {
