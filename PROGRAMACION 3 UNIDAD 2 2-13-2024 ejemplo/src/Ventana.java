@@ -9,6 +9,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -404,11 +406,79 @@ public class Ventana extends JFrame {
 	    superButton.setFont(new Font("Bell MT", Font.BOLD, 20));
 	    btn_panel.add(superButton);
 	    
+	    //evento de raton
+	    MouseListener oyenteDeRaton = new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("se presiono uwu");
+				//se ombienen la cordenada del mouse al presionar
+				int x=e.getX();
+			    int y=e.getY();
+				int w = (int)Math.floor(Math.random()*120+1);
+				int h = (int)Math.floor(Math.random()*120+1);
+
+				//color aleatorio para el boton
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+				Color randomColor = new Color(r, g, b);
+				
+				//se genera un boton random
+				JButton otroBotton = new JButton(r+","+g+","+b);
+				otroBotton.setBounds(x,y,w,h);
+				otroBotton.setOpaque(true);
+				otroBotton.setBorder(BorderFactory.createLineBorder(randomColor,5));
+				btn_panel.add(otroBotton);
+				
+				//al presionar el boton aparece el texto que tiene dentro
+				otroBotton.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						JOptionPane.showMessageDialog(null, otroBotton.getText());	
+					}
+				});
+				//repintar uwu
+				getContentPane().repaint();
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		};
+		
+	    btn_panel.addMouseListener(oyenteDeRaton);
+	    
 	    superButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//cordenadas y tamaño para el boton de manera random
+				
 				int x = (int)Math.floor(Math.random()*450+1);
 				int y = (int)Math.floor(Math.random()*650+1);
 				int w = (int)Math.floor(Math.random()*120+1);
@@ -440,6 +510,8 @@ public class Ventana extends JFrame {
 				getContentPane().repaint();
 			}
 		});
+		
+	    //agregar a la ventana uwu
     	this.add(btn_panel);
     }
     
