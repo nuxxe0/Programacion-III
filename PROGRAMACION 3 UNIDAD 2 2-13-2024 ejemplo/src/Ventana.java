@@ -444,6 +444,7 @@ public class Ventana extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						// TODO Auto-generated method stub
+						
 						JOptionPane.showMessageDialog(null, otroBotton.getText());	
 					}
 				});
@@ -503,7 +504,11 @@ public class Ventana extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						// TODO Auto-generated method stub
-						JOptionPane.showMessageDialog(null, otroBotton.getText());	
+						//eliminar los botones que hayan aparecido presionando el boton que aparece botonoes random
+						JButton yo = ((JButton)e.getSource());
+						btn_panel.remove(yo);
+						getContentPane().repaint();
+						//JOptionPane.showMessageDialog(null, otroBotton.getText());	
 					}
 				});
 				//repintar uwu
