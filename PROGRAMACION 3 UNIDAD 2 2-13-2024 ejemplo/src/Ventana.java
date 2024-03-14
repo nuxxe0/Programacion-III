@@ -457,12 +457,21 @@ public class Ventana extends JFrame {
 			public void mouseExited(MouseEvent e) {
 				// TODO Auto-generated method stub
 				
+				
+				
 			}
 			
 			@Override
 			public void mouseEntered(MouseEvent e) {
 				// TODO Auto-generated method stub
-				
+				//cada que el moues entre a la ventana el fondo cambia de color uwu
+				Random rand = new Random();
+				float r = rand.nextFloat();
+				float g = rand.nextFloat();
+				float b = rand.nextFloat();
+
+		    	btn_panel.setBackground(new Color(r,g,b));
+			
 			}
 			
 			@Override
